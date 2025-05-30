@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- SEO Meta Description -->
+  <meta name="description" content="Narasimha Manam - Passionate Web Developer portfolio showcasing skills, projects, and resume." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Narasimha Manam Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* === BASE & RESET === */
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Roboto', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* === DARK MODE VARIABLES === */
+    :root {
+      --bg-color: #fff;
+      --text-color: #000;
+      --primary-color: #007BFF;
+      --link-hover-color: hsl(210, 100%, 50%);
+      --border-color: #ccc;
+      --footer-bg: #f1f1f1;
+      --skill-bar-bg: #e0e0e0;
+      --skill-bar-fill: #007BFF;
+    }
+    [data-theme='dark'] {
+      --bg-color: #121212;
+      --text-color: #ddd;
+      --primary-color: #3399FF;
+      --link-hover-color: hsl(210, 100%, 70%);
+      --border-color: #444;
+      --footer-bg: #1a1a1a;
+      --skill-bar-bg: #333;
+      --skill-bar-fill: #3399FF;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* === NAVBAR === */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    /* Typed animation container */
+    .typed-text {
+      display: inline-block;
+      font-style: normal;
+      font-weight: 500;
+      color: var(--text-color);
+      border-right: 2px solid var(--primary-color);
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
+
+    /* Nav links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hamburger menu button (hidden on desktop) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      width: 25px;
+      height: 20px;
+    }
+    .hamburger div {
+      background-color: var(--text-color);
+      height: 3px;
+      border-radius: 2px;
+    }
+
+    /* === SECTIONS === */
+    .section {
+      display: flex;
+      gap: 50px;
+      padding: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    /* About image */
+    #about > div:first-child img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Skills Section */
+    .skills {
+      padding: 20px;
+    }
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    /* Skill bars container */
+    .skill-bar {
+      margin-bottom: 15px;
+      max-width: 400px;
+    }
+    .skill-bar-label {
+      font-weight: 500;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    .skill-bar-track {
+      background-color: var(--skill-bar-bg);
+      border-radius: 20px;
+      height: 15px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background-color: var(--skill-bar-fill);
+      width: 0;
+      border-radius: 20px;
+      transition: width 2s ease;
+    }
+
+    /* Projects */
+    .projects {
+      padding: 20px;
+      max-width: 1000px;
+    }
+    .projects ul {
+      font-size: 15px;
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .project1 {
+      gap: 20px;
+      display: flex;
+      padding: 10px;
+      margin: 5px 0 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .project1 .imgage img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .project1 .content {
+      flex: 1;
+      min-width: 250px;
+    }
+    .project1 h4, .project1 ul {
+      margin-left: 20px;
+    }
+
+    /* Resume Section */
+    .resume {
+      padding: 20px;
+    }
+    .resume-link {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+    .resume-link img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .resume-link a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .resume-link a:hover {
+      color: hsl(210, 100%, 50%);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--footer-bg);
+      color: var(--text-color);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer img {
+      margin: 0 10px;
+      vertical-align: middle;
+      filter: var(--icon-filter, none);
+    }
+    footer p {
+      margin-top: 10px;
+      color: var(--text-color);
+    }
+
+    /* Image flex container */
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Content links */
+    .content a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    .content a:hover {
+      color: hsl(110, 100%, 48%);
+    }
+
+    /* Back to top button */
+    #backToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+    #backToTopBtn:hover {
+      background-color: hsl(210, 100%, 40%);
+    }
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background-color: var(--bg-color);
+        height: calc(100vh - 70px);
+        width: 200px;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    .skill-bar {
+  margin-bottom: 20px;
+}
+
+.skill-bar-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.skill-percent {
+  font-size: 14px;
+  color: #555;
+}
+
+.skill-bar-track {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 10px;
+  width: 0;
+  transition: width 2s ease-in-out;
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+      <div>
+        <h1 class="logo">Narasimha Manam</h1>
+        <p>
+          <!-- Typed text animation container -->
+          <span aria-label="Profession" class="typed-text" role="textbox" aria-live="polite" aria-atomic="true"></span>
+        </p>
+      </div>
+
+      <!-- Hamburger menu button -->
+      <div class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="primary-navigation" role="button" tabindex="0">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#skills" tabindex="0">Skills</a></li>
+        <li><a href="#projects" tabindex="0">Projects</a></li>
+        <li><a href="#resume" tabindex="0">Resume</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section" id="about" tabindex="0" aria-label="About Me">
+      <div>
+        <img
+          src="images/profile_picture.jpg"
+          alt="Profile Picture of Narasimha Manam"
+          width="200"
+          height="200"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <h1>About Me</h1>
+        <p>
+          I am a passionate Web Developer with hands-on experience in building responsive, accessible, and user-friendly websites.
+          My core strength lies in front-end development, where I combine creativity and technical skill to craft clean, efficient,
+          and visually engaging web interfaces. I specialize in HTML5, CSS3, JavaScript, and modern frameworks like React.js and Tailwind CSS,
+          and I’m always eager to explore new tools that can enhance user experiences and streamline development. I also have working knowledge
+          of version control systems (Git/GitHub).
+
+          Beyond technical proficiency, I believe in writing well-organized, maintainable code and following best practices to ensure scalability
+          and performance. I enjoy translating ideas into interactive digital experiences and am particularly drawn to projects that aim to
+          solve real-world problems or support social and environmental causes. I continuously seek to improve through collaboration, feedback,
+          and staying up to date with the latest industry trends and technologies. Whether it’s designing intuitive UI components,
+          optimizing website performance, or contributing to team projects, I bring enthusiasm, focus, and a problem-solving mindset to every task.
+
+          I take pride in writing clean, maintainable code and creating seamless digital experiences that leave a lasting impact.
+          My goal is to turn ideas into real-world web solutions that are both functional and beautiful. With a strong eye for detail
+          and a passion for continuous learning, I’m committed to growing as a developer while contributing to innovative, user-focused projects.
+        </p>
+      </div>
+    </section>
+
+    <section class="skills" id="skills" tabindex="0" aria-label="Skills">
+  <h2>Skills</h2>
+
+  <!-- Skill bar -->
+  <div class="skill-bar">
+    <div class="skill-bar-label">HTML <span class="skill-percent">90%</span></div>
+    <div class="skill-bar-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML skill level">
+      <div class="skill-bar-fill" style="width: 0;"></div>
+    </div>
+  </div>
+
+  <div class="skill-bar">
+    <div class="skill-bar-label">CSS <span class="skill-percent">80%</span></div>
+    <div class="skill-bar-track" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="CSS skill level">
+      <div class="skill-bar-fill" style="width: 0;"></div>
+    </div>
+  </div>
+
+  <div class="skill-bar">
+    <div class="skill-bar-label">JavaScript <span class="skill-percent">85%</span></div>
+    <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript skill level">
+      <div class="skill-bar-fill" style="width: 0;"></div>
+    </div>
+  </div>
+
+  <div class="skill-bar">
+    <div class="skill-bar-label">React.js <span class="skill-percent">70%</span></div>
+    <div class="skill-bar-track" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="React.js skill level">
+      <div class="skill-bar-fill" style="width: 0;"></div>
+    </div>
+  </div>
+
+  <div class="skill-bar">
+    <div class="skill-bar-label">Tailwind CSS <span class="skill-percent">65%</span></div>
+    <div class="skill-bar-track" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Tailwind CSS skill level">
+      <div class="skill-bar-fill" style="width: 0;"></div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="projects" id="projects">
+  <h2>Projects</h2>
+  <ul style="list-style: none; padding: 0;">
+    <li class="project1" style="margin-bottom: 40px; display: flex; gap: 20px; align-items: flex-start;">
+      <div class="imgage">
+        <img src="images/project1.png" alt="Project 1" style="width: 200px; height: 200px; border-radius: 10px;">
+      </div>
+      <div class="content" style="flex: 1;">
+        <h3>Simple Calculator</h3>
+        <p>
+          The Simple Calculator is a lightweight, web-based application developed using core front-end technologies: HTML, CSS, and JavaScript.
+          Designed for simplicity and ease of use, this project enables users to perform fundamental arithmetic operations such as addition, subtraction,
+          multiplication, and division directly within their browser—without the need for any external software. This calculator serves as a demonstration
+          of key web development skills, including user interface design, DOM manipulation, and event handling.
+        </p>
+
+        <h4>🔍 Key Highlights:</h4>
+        <ul style="margin-left: 20px;">
+          <li>Fully functional calculator with four basic arithmetic operations</li>
+          <li>Real-time expression evaluation and screen update</li>
+          <li>User-friendly layout with clear buttons and display section</li>
+          <li>Responsive design using CSS Grid/Flexbox</li>
+          <li>JavaScript-powered interaction and validation</li>
+        </ul>
+        <h4>📁 Project GitHub Files: <a href="https://lnkd.in/eSXwQxN2" target="_blank" rel="noopener noreferrer">Click here to check</a></h4>
+      </div>
+    </li>
+
+    <li class="project1" style="margin-bottom: 40px; display: flex; gap: 20px; align-items: flex-start;">
+      <div class="imgage">
+        <img src="images/project2.png" alt="Project 2" style="width: 200px; height: 200px; border-radius: 10px;">
+      </div>
+      <div class="content" style="flex: 1;">
+        <h3>EcoNest – Smart House Landing Page</h3>
+        <p>
+          The EcoNest Landing Page is a visually appealing and responsive single-page website designed to showcase the concept of smart, sustainable homes.
+          Built using HTML, CSS, and JavaScript, the page serves as a digital introduction to EcoNest's smart housing solutions, emphasizing eco-friendly living,
+          energy efficiency, and modern technology integration. This project focuses on providing a seamless user experience with smooth navigation, interactive content,
+          and a clean UI layout that reflects the core values of sustainability and innovation.
+        </p>
+
+        <h4>🔍 Key Highlights:</h4>
+        <ul style="margin-left: 20px;">
+          <li>Fully responsive single-page layout for all devices</li>
+          <li>Sections include Home, Features, Gallery, FAQs, and Contact</li>
+          <li>Interactive elements and smooth scroll navigation for user engagement</li>
+          <li>Modern visual design emphasizing green and sustainable aesthetics</li>
+        </ul>
+        <h4>📁 Project GitHub Files: <a href="https://lnkd.in/e_MCm8qK" target="_blank" rel="noopener noreferrer">Click here to check</a></h4>
+        <h4>💻 Live At: <a href="https://lnkd.in/eAZ8Drd6" target="_blank" rel="noopener noreferrer">View website</a></h4>
+      </div>
+    </li>
+  </ul>
+</section>
+
+    <section class="resume" id="resume">
+  <h2>Resume</h2>
+  <p>For a detailed overview of my professional journey, skills, and accomplishments, please refer to my</p>
+  <div class="resume-link" style="display: flex; gap: 20px; align-items: center;">
+    <div class="image">
+      <img src="images/resumeimg.png" alt="Resume" style="width: 200px; height: 200px; border-radius: 10px;">
+    </div>
+    <div class="content">
+      <a href="resume/my_resume.pdf" download style="font-size: 1.1em; color: #007BFF; text-decoration: none;">Download My Resume</a>
+    </div>
+  </div>
+</section>
+
+
+    <section id="contact" tabindex="0" aria-label="Contact Information">
+      <h2>Contact</h2>
+      <p>
+        You can reach me on:
+
+  <!-- Email Icon -->
+  <a href="mailto:narasimhamanam6014@gmail.com" target="_blank" style="margin: 0 10px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="24" height="24">
+  </a>
+
+  <!-- LinkedIn Icon -->
+  <a href="https://www.linkedin.com/in/narasimha-manam-032a9634b" target="_blank" style="margin: 0 10px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="24" height="24">
+  </a>
+
+  <!-- WhatsApp Icon -->
+  <a href="https://wa.me/7386464170" target="_blank" style="margin: 0 10px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="24" height="24">
+  </a>
+        <p>Feel free to connect with me for collaboration, inquiries, or just to say hello!</p>
+        <p>Thank you for visiting my portfolio!</p>
+      </p>
+    </section>
+  </main>
+
+  <footer  style="text-align: center; padding: 20px; ">
+  <p style="margin-top: 10px;">&copy; 2025 Narasimha Manam. All rights reserved.</p>
+ </footer>
+
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" aria-label="Back to top" title="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Dark Mode Toggle Button -->
+  <button
+    id="darkModeToggle"
+    aria-label="Toggle dark mode"
+    title="Toggle dark mode"
+    style="position: fixed; bottom: 30px; left: 30px; background: var(--primary-color); color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer; z-index: 1000;"
+  >
+    🌙 Dark Mode
+  </button>
+
+  <script>
+    // 1. Dark Mode Toggle with localStorage
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const rootElement = document.documentElement;
+
+    // Initialize based on localStorage
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      rootElement.setAttribute('data-theme', 'dark');
+      toggleBtn.textContent = '☀️ Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      if (rootElement.getAttribute('data-theme') === 'dark') {
+        rootElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        toggleBtn.textContent = '🌙 Dark Mode';
+      } else {
+        rootElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        toggleBtn.textContent = '☀️ Light Mode';
+      }
+    });
+
+    // 2. Typed Text Animation on "Web Developer"
+    const typedTextSpan = document.querySelector('.typed-text');
+    const typedWords = ['Web Developer', 'Front-End Enthusiast', 'React.js Developer', 'Tailwind CSS User'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let typingDelay = 150;
+    let erasingDelay = 75;
+    let newWordDelay = 2000; // pause before next word
+
+    function type() {
+      if (charIndex < typedWords[wordIndex].length) {
+        typedTextSpan.textContent += typedWords[wordIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      } else {
+        setTimeout(erase, newWordDelay);
+      }
+    }
+    function erase() {
+      if (charIndex > 0) {
+        typedTextSpan.textContent = typedWords[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      } else {
+        wordIndex++;
+        if (wordIndex >= typedWords.length) wordIndex = 0;
+        setTimeout(type, typingDelay + 500);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typedWords.length) setTimeout(type, newWordDelay + 250);
+    });
+
+    // 3. Back to Top Button
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 4. Animate Skill Bars on scroll into view
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+const skillPercentages = [90, 80, 85, 70, 65]; // must match skill bars order
+
+function animateSkills() {
+  skillBars.forEach((bar, i) => {
+    const percent = skillPercentages[i];
+    bar.style.width = percent + '%';
+
+    // Add percentage text inside the bar
+    bar.textContent = percent + '%';
+    bar.style.color = 'white';
+    bar.style.fontWeight = 'bold';
+    bar.style.textAlign = 'right';
+    bar.style.paddingRight = '8px';
+  });
+}
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom >= 0
+  );
+}
+
+function checkSkillsAnimation() {
+  const skillsSection = document.getElementById('skills');
+  if (isInViewport(skillsSection)) {
+    animateSkills();
+    window.removeEventListener('scroll', checkSkillsAnimation);
+  }
+}
+
+window.addEventListener('scroll', checkSkillsAnimation);
+window.addEventListener('load', checkSkillsAnimation);
+
+    
+
+    // 7. Responsive Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('active');
+    });
+
+    // Allow keyboard toggle on hamburger
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburger.click();
+      }
+    });
+  </script>
+</body>
+</html>
