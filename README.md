@@ -43,9 +43,10 @@ Welcome to my personal **Web Developer Portfolio** built as part of the **CodTec
 
 ## 📸 Screenshots
 
+![Image](https://github.com/user-attachments/assets/f174653e-8765-4a02-a033-4e3bc3a68397)
 ![Image](https://github.com/user-attachments/assets/5d2c0825-6410-4026-86f8-6e9e6f812683)
 ![Image](https://github.com/user-attachments/assets/57b7c726-8b2d-487b-900d-e0ac3d6b8512)
-![Image](https://github.com/user-attachments/assets/f174653e-8765-4a02-a033-4e3bc3a68397)
+
 
 ---
 
